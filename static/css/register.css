@@ -59,3 +59,12 @@ body{
     background-color: white;
     transition: ease-in 0.5s;
  }
+
+ .account-existance{ 
+    list-style: none;
+ }
+
+ .account-existance a{ 
+    text-decoration: none;
+    color: white;
+ }

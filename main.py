@@ -1,7 +1,9 @@
 from flask import Flask, render_template
+from flask_sqlalchemy import SQLAlchemy
+
 
 app = Flask(__name__, template_folder='templates')
-
+db = SQLAlchemy(app)
 
 @app.route('/')
 def home():
