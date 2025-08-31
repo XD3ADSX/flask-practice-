@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/Flask files/Login style/login.css">
+    <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/nav-bar.css')}}">
+</head>
+<body>
+
+
+    <h1 class="page-title">LOGIN PAGE</h1>
+    
+
+    <div class="container">
+        <h1>please login here</h1>
+        <p><input type="text" placeholder="enter your name"></p>
+        <p><input type="text" placeholder="enter your email"></p>
+        <p><input type="text"  placeholder="enter your password"></p>
+        <button>Log in</button>
+    </div>  
+
+
+    <div class="nav-container">
+        <nav class="nav-bar">
+            <ul class="nav-links">
+                <li><a href="home.html">home page</a></li>
+                <li><a href="aboutUs.html">about us</a></li>
+                <li><a href="login.html">login page</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    
+</body>
+</html>

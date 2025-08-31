@@ -1,0 +1,35 @@
+.nav-container { 
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: transparent;
+  justify-content: center;
+  
+}
+
+
+.nav-bar{ 
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    align-items: center;
+    background: linear-gradient(to right,rgb(255, 22, 22) ,rgb(241, 109, 164));
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav-links{ 
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    padding: 10px;
+    gap: 40px;
+}
+.nav-links li a{
+    text-decoration: none;
+    color: black;
+
+}
