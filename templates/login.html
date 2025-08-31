@@ -12,7 +12,9 @@
 <body>
 
 
-    <h1 class="page-title">LOGIN PAGE</h1>
+    <div class="title-container">
+        <h1 class="page-title">LOGIN PAGE</h1>
+    </div>
     
 
     <div class="container">
@@ -20,6 +22,7 @@
         <p><input type="text" placeholder="enter your name"></p>
         <p><input type="text" placeholder="enter your email"></p>
         <p><input type="text"  placeholder="enter your password"></p>
+        <li class="no-account"><a href="{{url_for('register')}}">dont have an account?</a></li>
         <button>Log in</button>
     </div>  
 
@@ -27,7 +30,7 @@
     <div class="nav-container">
         <nav class="nav-bar">
             <ul class="nav-links">
-                <li><a href="home.html">home page</a></li>
+                <li><a href="{{url_for('home')}}">home page</a></li>
                 <li><a href="aboutUs.html">about us</a></li>
                 <li><a href="login.html">login page</a></li>
             </ul>
