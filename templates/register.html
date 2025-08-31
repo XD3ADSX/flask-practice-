@@ -4,8 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/nav-bar.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css')}}">
+    <link rel="stylesheet" href="/Flask files/static/css/register.css">
+    <link rel="stylesheet" href="/Flask files/static/css/nav-bar.css">
 </head>
 <body>
-    <h1>Register Page</h1>
+
+    <div class="title-container">
+        <h1 class="page-title">Register Page</h1>
+    </div>
+
+    <div class="nav-container">
+        <nav class="nav-bar">
+            <ul class="nav-links">
+                <li><a href="{{url_for('home')}}">home page</a></li>
+                <li><a href="aboutUs.html">about us</a></li>
+                <li><a href="{{url_for('login')}}">login page</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="container">
+        <input type="text" class="email" placeholder="enter your email here">
+        <input type="text" class="username-input" placeholder="enter your username here">
+        <input type="text" class="password-input" placeholder="enter your password here">
+        <input type="text" class="password-input" placeholder="re-enter your password">
+        <button class="submit-button">Register</button>
+
+    </div>
+    
 </body>
 </html>
