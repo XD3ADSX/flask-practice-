@@ -1,22 +1,29 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField,SubmitField
 from wtforms.validators import InputRequired, Length, ValidationError, Email, EqualTo
-
+from flask_bcrypt import Bcrypt
 
 app = Flask(__name__, template_folder='templates')
 
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user.db'
+
 app.config['SECRET_KEY'] = 'supersecretkey'
 db = SQLAlchemy(app)
+bcrypt = Bcrypt(app)
+
 
 class UserLogin(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(40), nullable = False, unique = True)
     email = db.Column(db.String(50), nullable = False)
     password = db.Column(db.String(30), nullable = False)
+
+with app.app_context():
+    db.create_all()
 
 
 class registrationform(FlaskForm):
@@ -60,11 +67,13 @@ def login():
 @app.route('/register', methods = ['GET', 'POST'])
 def register():
     form = registrationform()
+    if form.validate_on_submit():
+        hashed_password = bcrypt.generate_password_hash(form.password.data)
+        new_user = UserLogin(username=form.username.data, email = form.email.data, password= hashed_password)
+        db.session.add(new_user)
+        db.session.commit()
+        return redirect(url_for('login'))
     return render_template('register.html', form = form)
-
-
-
-
 
 
 
