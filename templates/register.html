@@ -26,14 +26,18 @@
     </div>
 
     <div class="container">
-        <input type="text" class="email" placeholder="enter your email here">
-        <input type="text" class="username-input" placeholder="enter your username here">
-        <input type="text" class="password-input" placeholder="enter your password here">
-        <input type="text" class="password-input" placeholder="re-enter your password">
-        <li class="account-existance"><a href="{{url_for('login')}}">Already have an account? </a></li>
-        <button class="submit-button">Register</button>
+    <form method="POST" action="">
+        {{form.hidden_tag()}}
+        {{form.username(class="username-input")}}
+        {{form.email(class="email")}}
+        {{form.password(class="password-input")}}
+        {{form.confirm_password(class="password-input")}}
+        {{form.submit(class="submit-button")}}
+    </form>
 
     </div>
+
+  
     
 </body>
 </html>

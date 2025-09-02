@@ -3,12 +3,13 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField,SubmitField
-from wtforms.validators import InputRequired, Length, ValidationError, Email
+from wtforms.validators import InputRequired, Length, ValidationError, Email, EqualTo
 
 
 app = Flask(__name__, template_folder='templates')
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user.db'
+app.config['SECRET_KEY'] = 'supersecretkey'
 db = SQLAlchemy(app)
 
 class UserLogin(db.Model):
@@ -22,7 +23,8 @@ class registrationform(FlaskForm):
     username = StringField(validators=[InputRequired(), Length( min=4, max=40)], render_kw={'placeholder': 'username'})
     email = StringField(validators=[InputRequired(), Email(), Length(min=6, max=50)], render_kw={'placeholder': 'email'})
     password = PasswordField(validators=[InputRequired(), Length(min=11, max=30)], render_kw={'placeholder': 'password'})
-
+    confirm_password = PasswordField(validators=[InputRequired(), EqualTo('password', message='passwords must match')],
+                                     render_kw={'placeholder': 'confirm password'})
     submit = SubmitField('Register')
 
 
@@ -50,13 +52,15 @@ class loginform(FlaskForm):
 def home():
     return render_template('home.html')
 
-@app.route('/login')
+@app.route('/login', methods = ['GET', 'POST'])
 def login(): 
-    return render_template('login.html')
+    form = loginform()
+    return render_template('login.html', form = form)
 
-@app.route('/register')
+@app.route('/register', methods = ['GET', 'POST'])
 def register():
-    return render_template('register.html')
+    form = registrationform()
+    return render_template('register.html', form = form)
 
 
 
@@ -65,4 +69,4 @@ def register():
 
 
 if __name__ == "__main__": 
-    app.run(host='0.0.0.0', port=5555)
+    app.run(host='0.0.0.0', port=5555, debug=True)
