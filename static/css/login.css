@@ -44,7 +44,7 @@ body {
     border-radius: 10px;
 }
 
-.container button{ 
+.submit-button{ 
     width: 100px;
     height: 40px;
     font-size: 1.2rem;
@@ -54,7 +54,7 @@ body {
     border: 2px solid;
 }
 
-.container button:hover{ 
+.submit-button:hover{ 
     color: black;
     background-color: white;
     transition: ease-in 0.5s;
@@ -63,11 +63,14 @@ body {
 .no-account{ 
     list-style: none;
     margin-bottom: 20px;
+    text-decoration: none;
+    color: white;
 }
 
-.no-account a{
-    text-decoration: none;
-    color:white;
-    
-    
+
+
+form{ 
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }

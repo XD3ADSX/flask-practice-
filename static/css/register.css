@@ -44,7 +44,7 @@ body{
     
 }
 
- .container button { 
+ .submit-button { 
     width: 100px;
     height: 40px;
     font-size: 1.2rem;
@@ -54,7 +54,7 @@ body{
     border: 2px solid;
  }
 
- .container button:hover{ 
+ .submit-button:hover{ 
     color: black;
     background-color: white;
     transition: ease-in 0.5s;
@@ -62,9 +62,13 @@ body{
 
  .account-existance{ 
     list-style: none;
- }
-
- .account-existance a{ 
     text-decoration: none;
     color: white;
  }
+
+ 
+form{ 
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

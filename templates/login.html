@@ -19,11 +19,15 @@
 
     <div class="container">
         <h1>please login here</h1>
-        <p><input type="text" placeholder="enter your name"></p>
-        <p><input type="text" placeholder="enter your email"></p>
-        <p><input type="text"  placeholder="enter your password"></p>
-        <li class="no-account"><a href="{{url_for('register')}}">dont have an account?</a></li>
-        <button>Log in</button>
+    <form method="POST" action=""> 
+        {{form.hidden_tag()}}
+        {{form.username(class='username-input')}}
+        {{form.email(class='email')}}
+        {{form.password(class='password-input')}}
+        {{form.submit(class='submit-button')}}
+        <a href="{{url_for('register')}}" class="no-account">Dont have an account?</a>
+
+    </form>
     </div>  
 
 
@@ -36,6 +40,8 @@
             </ul>
         </nav>
     </div>
+
+    
 
     
 </body>
